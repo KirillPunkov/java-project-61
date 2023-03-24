@@ -16,7 +16,7 @@ compileJava {
 }
 
 application {
-    mainClass = 'hexlet.b'
+    mainClass = 'hexlet.code.App'
 }
 
 dependencies {
