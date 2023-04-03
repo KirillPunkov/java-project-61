@@ -12,13 +12,17 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int choiceNumber = scanner.nextInt();
-        System.out.println("");
+        System.out.println(" ");
 
         switch (choiceNumber) {
             case 0:
                 break;
             case 1:
                 Greet.greetPlayer();
+                break;
+            case 2:
+                Even.gameEven();
+                break;
             default:
                 break;
         }
