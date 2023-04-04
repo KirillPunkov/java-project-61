@@ -5,7 +5,7 @@
 A project of a text game "The Brain Games".
 
 
-# Demonstration record of Even Game with asciinema!
+#### Demonstration record of Even Game with asciinema!
 
 https://asciinema.org/a/KqlzCzX5fOFGJGHXP4ni7bX0o
 
