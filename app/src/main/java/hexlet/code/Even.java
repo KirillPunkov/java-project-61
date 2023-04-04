@@ -7,16 +7,15 @@ public class Even {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
 
-    private static String playerName = Greet.getPlayerName();
-
-    //private static int countOfWrightAnswers = 0;
     public static void gameEven() {
         Greet.greetPlayer();
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
 
+        var count = 0;
+
         for (var i = 0; i < 3; i++) {
-            int randomNumber = random.nextInt();
+            int randomNumber = random.nextInt(99);
             boolean isRandomNumberEven = ((randomNumber % 2) == 0);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
@@ -26,25 +25,25 @@ public class Even {
             if (isRandomNumberEven) {
                 if (playerAnswer.equals("yes")) {
                     System.out.println("Correct!");
+                    count++;
                 } else {
                     System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'yes'.");
-                    wrongEndOfGame();
+                    Player.lossGame();
                     break;
                 }
             } else {
                 if (playerAnswer.equals("no")) {
                     System.out.println("Correct!");
+                    count++;
                 } else {
                     System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'no'.");
-                    wrongEndOfGame();
+                    Player.lossGame();
                     break;
                 }
             }
         }
-        System.out.println("Congratulations, " + playerName + "!");
-    }
-
-    private static void wrongEndOfGame() {
-        System.out.println("Let's try again, " + playerName + "!");
+        if (count == 3) {
+            Player.winGame();
+        }
     }
 }
