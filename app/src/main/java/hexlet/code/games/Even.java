@@ -1,4 +1,7 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Greet;
+import hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -28,7 +31,7 @@ public class Even {
                     count++;
                 } else {
                     System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'yes'.");
-                    Player.lossGame();
+                    Engine.lossGame();
                     break;
                 }
             } else {
@@ -37,13 +40,13 @@ public class Even {
                     count++;
                 } else {
                     System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'no'.");
-                    Player.lossGame();
+                    Engine.lossGame();
                     break;
                 }
             }
         }
         if (count == 3) {
-            Player.winGame();
+            Engine.winGame();
         }
     }
 }
