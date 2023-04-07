@@ -16,37 +16,29 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
 
         var count = 0;
+        var correctAnswer = "yes";
 
         for (var i = 0; i < 3; i++) {
             int randomNumber = random.nextInt(99);
-            boolean isRandomNumberEven = ((randomNumber % 2) == 0);
+            //boolean isRandomNumberEven = ((randomNumber % 2) == 0);
+            Engine.setCorrectAnswer(((randomNumber % 2) == 0) ? "yes" : "no");
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
-            String playerAnswer = scanner.next();
+            var playerAnswer = scanner.next();
             playerAnswer = playerAnswer.toLowerCase();
 
-            if (isRandomNumberEven) {
-                if (playerAnswer.equals("yes")) {
+            if (playerAnswer.equals(Engine.getCorrectAnswer()) {
                     System.out.println("Correct!");
                     count++;
                 } else {
-                    System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'yes'.");
-                    Engine.lossGame();
-                    break;
-                }
-            } else {
-                if (playerAnswer.equals("no")) {
-                    System.out.println("Correct!");
-                    count++;
-                } else {
-                    System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'no'.");
-                    Engine.lossGame();
+                    Engine.lossGame(playerAnswer);
                     break;
                 }
             }
-        }
         if (count == 3) {
             Engine.winGame();
+        }
+
         }
     }
 }
