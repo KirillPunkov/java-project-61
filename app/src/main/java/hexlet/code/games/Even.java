@@ -7,27 +7,28 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
-    static Scanner scanner = new Scanner(System.in);
-    static Random random = new Random();
+    Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
 
-    public static void gameEven() {
-        Greet.greetPlayer();
+    public void gameEven() {
+        Engine.greetPlayer();
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
 
         var count = 0;
-        var correctAnswer = "yes";
 
         for (var i = 0; i < 3; i++) {
             int randomNumber = random.nextInt(99);
             //boolean isRandomNumberEven = ((randomNumber % 2) == 0);
-            Engine.setCorrectAnswer(((randomNumber % 2) == 0) ? "yes" : "no");
+            Engine.setStringCorrectAnswer(((randomNumber % 2) == 0) ? "yes" : "no");
             System.out.println("Question: " + randomNumber);
+
+
             System.out.print("Your answer: ");
             var playerAnswer = scanner.next();
             playerAnswer = playerAnswer.toLowerCase();
 
-            if (playerAnswer.equals(Engine.getCorrectAnswer()) {
+            if (playerAnswer.equals(Engine.getStringCorrectAnswer())) {
                     System.out.println("Correct!");
                     count++;
                 } else {
@@ -41,4 +42,3 @@ public class Even {
 
         }
     }
-}

@@ -5,34 +5,51 @@ import java.util.Scanner;
 public class Engine {
     static Scanner scanner = new Scanner(System.in);
     private static String playerName;
-    private static String correctAnswer;
+    private static String stringCorrectAnswer;
+    private static int intCorrectAnswer;
 
     public static void askPlayerName() {
         System.out.print("May I have your name? ");
         playerName = scanner.next();
     }
-    public static String getPlayerName() {
+
+    public static void greetPlayer() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("Hello, " + playerName + "!");
+    }
+    public String getPlayerName() {
         return playerName;
     }
 
-    public static String getCorrectAnswer() {
-        return correctAnswer;
+    public String getStringCorrectAnswer() {
+        return stringCorrectAnswer;
     }
-    public static void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
+    public void setStringCorrectAnswer(String stringCorrectAnswer) {
+        this.stringCorrectAnswer = stringCorrectAnswer;
     }
 
-    public static void lossGame(String playerAnswer) {
-        System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'yes'.");
+    public int getIntegerCorrectAnswer() {
+        return intCorrectAnswer;
+    }
+    public void setIntegerCorrectAnswer(int intCorrectAnswer) {
+        this.intCorrectAnswer = intCorrectAnswer;
+    }
+
+    public void lossGame(String playerAnswer) {
+        System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + stringCorrectAnswer + ".");
         System.out.println("Let's try again, " + playerName + "!");
     }
 
-    public static void lossGame(int playerAnswer) {
-        System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was 'yes'.");
+    public void lossGame(int playerAnswer) {
+        System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + intCorrectAnswer + ".");
         System.out.println("Let's try again, " + playerName + "!");
     }
 
-    public static void winGame() {
+    public void winGame() {
         System.out.println("Congratulations, " + playerName + "!");
     }
+
+    int count = 0;
+
+
 }
