@@ -21,7 +21,7 @@ public class App {
             case 0:
                 break;
             case 1:
-                Greet.greetPlayer();
+                Engine.greetPlayer();
                 break;
             case 2:
                 Even.gameEven();

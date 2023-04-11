@@ -1,10 +1,14 @@
 package hexlet.code;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
     static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
+    private static int randomNumber = random.nextInt(99);
     private static String playerName;
+    private static int intCorrectAnswer;
     private static String stringCorrectAnswer;
     private static int intCorrectAnswer;
 
@@ -15,11 +19,38 @@ public class Engine {
 
     public static void greetPlayer() {
         System.out.println("Welcome to the Brain Games!");
+        askPlayerName();
         System.out.println("Hello, " + playerName + "!");
     }
     public String getPlayerName() {
         return playerName;
     }
+
+    private static count = 0;
+        for (int i = 0; i < 3; i++) {
+        int randomNumber = random.nextInt(99);
+        //boolean isRandomNumberEven = ((randomNumber % 2) == 0);
+        Engine.setStringCorrectAnswer(((randomNumber % 2) == 0) ? "yes" : "no");
+        System.out.println("Question: " + randomNumber);
+
+
+        System.out.print("Your answer: ");
+        var playerAnswer = scanner.next();
+        playerAnswer = playerAnswer.toLowerCase();
+
+        if (playerAnswer.equals(Engine.getStringCorrectAnswer())) {
+            System.out.println("Correct!");
+            count++;
+        } else {
+            Engine.lossGame(playerAnswer);
+            break;
+        }
+    }
+        if (count == 3) {
+        Engine.winGame();
+    }
+
+
 
     public String getStringCorrectAnswer() {
         return stringCorrectAnswer;

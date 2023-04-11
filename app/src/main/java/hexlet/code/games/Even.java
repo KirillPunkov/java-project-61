@@ -7,13 +7,16 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     Random random = new Random();
 
     public void gameEven() {
         Engine.greetPlayer();
-
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
+        public static int generatedTask = Random.nextInt(99);
+
+
+
 
         var count = 0;
 
