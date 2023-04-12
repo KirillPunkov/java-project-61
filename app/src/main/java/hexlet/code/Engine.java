@@ -12,6 +12,8 @@ public class Engine {
     private static String stringCorrectAnswer;
     private static int intCorrectAnswer;
 
+    private boolean isPlayerWin;
+
     public static void askPlayerName() {
         System.out.print("May I have your name? ");
         playerName = scanner.next();
@@ -26,28 +28,25 @@ public class Engine {
         return playerName;
     }
 
-    private static count = 0;
+    public static boolean isPlayerAnswerCorrect(int requestedTask, String correctAnswer)  {
+        int count = 0;
         for (int i = 0; i < 3; i++) {
-        int randomNumber = random.nextInt(99);
-        //boolean isRandomNumberEven = ((randomNumber % 2) == 0);
-        Engine.setStringCorrectAnswer(((randomNumber % 2) == 0) ? "yes" : "no");
-        System.out.println("Question: " + randomNumber);
-
-
-        System.out.print("Your answer: ");
-        var playerAnswer = scanner.next();
-        playerAnswer = playerAnswer.toLowerCase();
-
-        if (playerAnswer.equals(Engine.getStringCorrectAnswer())) {
-            System.out.println("Correct!");
-            count++;
-        } else {
-            Engine.lossGame(playerAnswer);
-            break;
+            System.out.println("Question: " + requestedTask);
+            System.out.print("Your answer: ");
+            String playerAnswer = scanner.next();
+            playerAnswer = playerAnswer.toLowerCase();
+            if (playerAnswer.equals(correctAnswer) {
+                System.out.println("Correct!");
+                return true;
+            } else {
+                System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + correctAnswer + ".");
+                System.out.println("Let's try again, " + playerName + "!");
+                break;
+            }
         }
-    }
         if (count == 3) {
-        Engine.winGame();
+            System.out.println("Congratulations, " + playerName + "!");
+        }
     }
 
 
@@ -71,12 +70,12 @@ public class Engine {
         System.out.println("Let's try again, " + playerName + "!");
     }
 
-    public void lossGame(int playerAnswer) {
+    public static void lossGame(int playerAnswer) {
         System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + intCorrectAnswer + ".");
         System.out.println("Let's try again, " + playerName + "!");
     }
 
-    public void winGame() {
+    public static void winGame() {
         System.out.println("Congratulations, " + playerName + "!");
     }
 
@@ -84,3 +83,4 @@ public class Engine {
 
 
 }
+4

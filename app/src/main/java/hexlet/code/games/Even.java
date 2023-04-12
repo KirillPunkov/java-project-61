@@ -9,15 +9,38 @@ import java.util.Scanner;
 public class Even {
     static Scanner scanner = new Scanner(System.in);
     Random random = new Random();
+    private static int randomNumber;
+    private static String correctAnswer;
 
     public void gameEven() {
         Engine.greetPlayer();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
-        public static int generatedTask = Random.nextInt(99);
+
+        public static int requestedTask() {
+            randomNumber = Random.nextInt(99);
+            return randomNumber;
+        }
+
+        public static String correctAnswer() {
+            return (((randomNumber % 2) == 0) ? "yes" : "no");
+        }
+
+
+        var count = 0;
+
+        for (int i = 0; i < 3; i++) {
+            randomNumber = Random.nextInt(99);
+            correctAnswer = correctAnswer();
+            Engine.isPlayerAnswerCorrect(randomNumber, correctAnswer) ? count++; break;
+        }
+        count == 3 ? Engine.winGame(); Engine.lossGame();
+
+
+    }
 
 
 
-
+/*
         var count = 0;
 
         for (var i = 0; i < 3; i++) {
@@ -42,6 +65,6 @@ public class Even {
         if (count == 3) {
             Engine.winGame();
         }
-
+*/
         }
     }
