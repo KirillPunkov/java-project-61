@@ -11,8 +11,9 @@ public class Even {
     Random random = new Random();
     private static int randomNumber;
     private static String correctAnswer;
+    private static int count = 0;
 
-    public void gameEven() {
+    public static void gameEven() {
         Engine.greetPlayer();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
 
@@ -25,17 +26,12 @@ public class Even {
             return (((randomNumber % 2) == 0) ? "yes" : "no");
         }
 
-
-        var count = 0;
-
         for (int i = 0; i < 3; i++) {
             randomNumber = Random.nextInt(99);
             correctAnswer = correctAnswer();
             Engine.isPlayerAnswerCorrect(randomNumber, correctAnswer) ? count++; break;
         }
         count == 3 ? Engine.winGame(); Engine.lossGame();
-
-
     }
 
 
