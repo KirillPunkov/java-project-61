@@ -1,38 +1,44 @@
 package hexlet.code.games;
 
-import hexlet.code.Greet;
 import hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
-    static Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     Random random = new Random();
-    private static int randomNumber;
-    private static String correctAnswer;
+    //int randomNumber() { return Random.nextInt(99);}
+    //private static String correctAnswer;
     private static int count = 0;
+
+    private static int generatedTask = 0;
+
+
+    //public static String correctAnswer;
+
 
     public static void gameEven() {
         Engine.greetPlayer();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
 
-        public static int requestedTask() {
-            randomNumber = Random.nextInt(99);
-            return randomNumber;
-        }
-
-        public static String correctAnswer() {
-            return (((randomNumber % 2) == 0) ? "yes" : "no");
-        }
-
         for (int i = 0; i < 3; i++) {
-            randomNumber = Random.nextInt(99);
-            correctAnswer = correctAnswer();
-            Engine.isPlayerAnswerCorrect(randomNumber, correctAnswer) ? count++; break;
+            generatedTask = Random.nextInt(99);
+            String correctAnswer = (generatedTask % 2) == 0 ? "yes" : "no";
+            if (Engine.gameDialog(generatedTask, correctAnswer)) {
+                count++;
+            } else {
+                break;
+            }
         }
-        count == 3 ? Engine.winGame(); Engine.lossGame();
+
+        if (count == 3) {
+            Engine.winGame();
+        } else {
+            Engine.lossGame();
+        }
     }
+}
 
 
 
@@ -61,6 +67,6 @@ public class Even {
         if (count == 3) {
             Engine.winGame();
         }
-*/
         }
     }
+*/

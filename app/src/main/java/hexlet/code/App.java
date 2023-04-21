@@ -25,7 +25,7 @@ public class App {
                 break;
             case 2:
                 Even.gameEven();
-                break;
+                //break;
             default:
                 break;
         }

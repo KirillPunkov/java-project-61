@@ -21,14 +21,12 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
     }
 
-
-
     public String getPlayerName() {
         return playerName;
     }
 
-    public static boolean isPlayerAnswerCorrect(int requestedTask, String correctAnswer)  {
-        System.out.println("Question: " + requestedTask);
+    public static boolean gameDialog(int generatedTask, String correctAnswer)  {
+        System.out.println("Question: " + generatedTask);
         System.out.print("Your answer: ");
         String playerAnswer = scanner.next();
         playerAnswer = playerAnswer.toLowerCase();
